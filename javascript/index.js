@@ -144,5 +144,11 @@ const step7 = obtainInstruction("brusselsSprouts", 6)
 const step8 = obtainInstruction("brusselsSprouts", 7)
 
 Promise.all([step1, step2, step3, step4, step5, step6, step7, step8])
-.then()
-.catch()
+  .then((steps) => {
+    steps.forEach(step => {
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>${step}</li>`;
+    });
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`;
+    document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+  })
+  .catch((error) => console.log(error));
